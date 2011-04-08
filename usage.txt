@@ -1,0 +1,7 @@
+usage: shifter [--help] <command> [<args>]
+
+The commands are:
+   encipher   Encipher source text.
+   decipher   Decipher source text.
+
+See 'shifter help <command>' for more information on a specific command.
