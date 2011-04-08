@@ -1,7 +1,5 @@
-usage: shifter [--help] <command> [<args>]
+usage: shifter [--help] <source> [<destination>]
 
-The commands are:
-   encipher   Encipher source text.
-   decipher   Decipher source text.
+<source> is required and can either be a file, or text entered at the command line.
 
-See 'shifter help <command>' for more information on a specific command.
+<destination> is optional and gives the location of a destination file for output. If omitted, the output will be printed to the command line.
