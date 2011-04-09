@@ -21,6 +21,8 @@ import getopt
 from types import *
 
 def main(argv):
+    if len(argv) > 2:
+        die("Too many arguments.", show_usage=True)
     try:
         opts, args = getopt.getopt(argv, "h", ["help"])
     except getopt.GetoptError:
@@ -103,8 +105,10 @@ def usage():
         print l,
     usage.close()
 
-def die(message):
+def die(message, show_usage=False):
     print message
+    if show_usage:
+        usage()
     sys.exit(2)
 
 if __name__ == "__main__":
