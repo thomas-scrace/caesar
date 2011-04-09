@@ -31,6 +31,10 @@ def main(argv):
             usage()
             sys.exit()
 
+    key = False
+    source = False
+    destination = False
+
     if len(args) > 0:
         source = args[0]
         if len(args) > 1:
@@ -38,7 +42,7 @@ def main(argv):
     else:
         usage()
         sys.exit()
-    key = False
+
     while not key:
         k = raw_input("Enter the key to use for decryption. If the key is unknown, press enter, and the program will attempt to determine the key for you.")
         if k == '':
@@ -89,7 +93,7 @@ def save_to_file(file_name, contents):
     return
 
 def usage():
-    usage = open('usage.txt')
+    usage = open('usage_decipher.txt')
     for l in usage:
         print l,
     usage.close()
