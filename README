@@ -1,0 +1,39 @@
+			caesar README
+
+caesar is:
+
+caesar.py: a python module with some functions providing a simple substitution cipher.
+
+encipher.py: a command line tool providing easy encipherment using the caesar module.
+
+decipher.py   a command line tool providing easy decipherment using the caesar module.
+
+test_caesar.py - a test suite for caesar.py
+
+To use the utilities, the syntax is:
+
+<source> [<destination>]
+
+<source> is what you want to decipher or encipher. It might be a file or some text enclosed in single quotes. <destination> is an optional filename to use as an output destination.
+
+You will be asked for a key. This is an integer between 0 and 25.
+
+If you do not provide a key for encipherment, one will be chosen at random for you.
+
+If you do not know the key for decipherment, an attempt will be made to find it for you.
+
+################
+
+WARNING!
+
+In case it was not already blindingly obvious, this software is almost completely useless. It is provided only for fun and learning.
+
+DO NOT, under any circumstances whatsoever, use this cipher to protect any data you actually care about protecting. It provides probably the weakest protection possible.
+
+Thank you!
+
+################
+
+						Thomas Scrace <tom@scrace.org>
+						http://scrace.org
+
