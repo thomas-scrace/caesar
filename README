@@ -22,6 +22,8 @@ If you do not provide a key for encipherment, one will be chosen at random for y
 
 If you do not know the key for decipherment, an attempt will be made to find it for you.
 
+caesar is available at https://github.com/thomas-scrace/caesar
+
 ################
 
 WARNING!
