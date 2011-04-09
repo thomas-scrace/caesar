@@ -1,0 +1,5 @@
+usage: encipher [--help] <source> [<destination>]
+
+<source> is required and can either be a file, or text entered at the command line. Enclose multi-word sources with single quotes at the command line.
+
+<destination> is optional and gives the location of a destination file for output. If omitted, the output will be printed to the command line.
