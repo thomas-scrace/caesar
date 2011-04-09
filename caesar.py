@@ -33,6 +33,7 @@ import random
 
 def build_translation_table(offset, operation):
     assert operation in ['de', 'en'], "Operation must be either en or de"
+    assert 0 <= offset <= 25, "offset must be >= 0, <= 25"
 
     lwr = string.ascii_lowercase
     upr = string.ascii_uppercase
@@ -60,6 +61,7 @@ def get_words():
     words = []
     for line in f:
         words.append(line.strip().lower())
+    f.close()
     return words
 
 def get_cipher_words(cipher):
@@ -71,23 +73,19 @@ def get_cipher_words(cipher):
         elif len(word) > 0:
             cipher_words.append(word)
             word = ''
+    if len(cipher_words) > 0:
+        if cipher_words[-1] != word and word != '':
+            cipher_words.append(word)
+    elif word != '':
+        cipher_words.append(word)
     return cipher_words
 
 def find_key(cipher):
     words = get_words()
     cipher_words = get_cipher_words(cipher)
-    flag = 0
     for i in range(26):
-        if decipher(cipher_words[0], i)in words and decipher(cipher_words[10], i) in words:
+        if decipher(cipher_words[0], i)in words and decipher(cipher_words[-1], i) in words:
             return i
-            #for word in cipher_words[1:]:
-                #if decipher(word, i) not in words:
-                   # flag = 1
-            #if not flag:
-                #return i
-           # else:
-                #flag = 0
-                #continue
     return False
 
 def encipher(plain, key=None):
@@ -102,9 +100,7 @@ def encipher(plain, key=None):
 def decipher(cipher, key=None):
     if key == None:
         key = find_key(cipher)
-        if key:
-            print "Key is %d" % key
-        else:
+        if not key:
             print "Key not found."
             return False
     table = build_translation_table(key, 'de')
