@@ -44,14 +44,19 @@ def main(argv):
         sys.exit()
 
     while not key:
-        k = raw_input("Enter the key to use for encryption. If you do not enter a key, one will be chosen for you at random.")
+        k = raw_input("Enter the key to use for encryption. If you do not enter a key, one will be chosen for you at random: ")
         if k == '':
             key = None
             break
-        if type(int(k)) == IntType and (0 <= int(k) <= 25):
+        try:
+            k = int(k)
+        except ValueError:
+            print "Invalid input (enter an integer between 0 and 25)"
+            continue
+        if (0 <= int(k) <= 25):
             key = int(k)
         else:
-            print "Invalid input."
+            print "Invalid input (enter an integer between 0 and 25)"
 
     plain = load_file(source)
     if not plain:
